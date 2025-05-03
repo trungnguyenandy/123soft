@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>123ソフト - 正規ソフトウェア販売</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* グローバルスタイル */
+        :root {
+            --primary-color: #2980b9; /* Deep Blue */
+            --secondary-color: #f39c12; /* Bright Orange */
+            --dark-color: #34495e; /* Dark Gray-Blue */
+            --light-color: #ecf0f1; /* Light Gray */
+            --success-color: #27ae60; /* Green */
+            --danger-color: #e74c3c; /* Red */
+            --gray-color: #95a5a6; /* Medium Gray */
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+            --font-family: 'Noto Sans JP', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-family);
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.7;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--secondary-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* ボタンスタイル */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #e67e22;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        /* ヘッダースタイル */
+        header {
+            background-color: var(--white);
+            color: var(--white);
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            max-height: 50px; /* Adjust as needed */
+            margin-right: 10px;
+        }
+        
+        .search-bar {
+            flex: 1;
+            margin: 0 30px;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--gray-color);
+            font-size: 14px;
+            padding-left: 45px;
+            background-color: var(--white);
+            color: var(--dark-color);
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .search-bar::before {
+            content: "\f002"; /* Font Awesome search icon */
+            font-family: FontAwesome;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 16px;
+            color: var(--gray-color);
+        }
+        
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-actions a {
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: var(--border-radius);
+            color: var(--dark-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .user-actions a:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary-color);
+        }
+        
+        .cart-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--danger-color);
+            color: var(--white);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        /* ナビゲーション */
+        nav {
+            background-color: var(--dark-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .main-menu {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .main-menu > li {
+            position: relative;
+        }
+        
+        .main-menu > li > a {
+            display: block;
+            padding: 15px 20px;
+            color: var(--white);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .main-menu > li > a:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: var(--secondary-color);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: var(--white);
+            min-width: 220px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 100;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .main-menu li:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 12px 20px;
+            color: var(--dark-color);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .dropdown-menu a:hover {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            padding-left: 25px;
+        }
+        
+        /* ヒーローセクション */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+            margin-bottom: 40px;
+            border-radius: var(--border-radius);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            opacity: 0.15;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        /* セクションタイトル */
+        .section {
+            padding: 50px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 28px;
+            color: var(--dark-color);
+            display: inline-block;
+            padding-bottom: 15px;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 16px;
+        }
+        
+        /* カテゴリーセクション */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .category-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-img {
+            height: 120px;
+            background-color: #f5f7fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--primary-color);
+        }
+        
+        .category-info {
+            padding: 20px;
+        }
+        
+        .category-info h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: var(--dark-color);
+        }
+        
+        .category-info p {
+            color: var(--gray-color);
+            font-size: 14px;
+        }
+        
+        /* 製品セクション */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--danger-color);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .product-img {
+            height: 180px;
+            background-color: #f5f7fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h3 {
+            margin-bottom: 12px;
+            font-size: 16px;
+            color: var(--dark-color);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        
+        .price-container {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .price {
+            font-weight: 700;
+            color: var(--danger-color);
+            font-size: 18px;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: var(--gray-color);
+            font-size: 14px;
+        }
+        
+        .discount {
+            background-color: var(--danger-color);
+            color: var(--white);
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .add-to-cart {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: var(--dark-color);
+            color: var(--white);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #34495e;
+        }
+        
+        /* カスタマーサポートセクション */
+        .customer-support {
+            background-color: #f5f7fa;
+            padding: 60px 0;
+            margin-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .support-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .support-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .support-info h2 {
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .support-info p {
+            margin-bottom: 25px;
+            line-height: 1.7;
+            color: #555;
+        }
+        
+        .support-features {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-top: 20px;
+        }
+        
+        .support-features h3 {
+            color: var(--dark-color);
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .feature-list {
+            list-style: none;
+        }
+        
+        .feature-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .feature-list li::before {
+            content: "\f00c"; /* Font Awesome check icon */
+            font-family: FontAwesome;
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+        
+        .support-image {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .support-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .support-button {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+                /* アカウント登録セクション */
+        .account-section {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+            border-radius: var(--border-radius);
+        }
+        
+        .account-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .account-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .account-section p {
+            margin-bottom: 30px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .account-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        /* リクエストボタン */
+        .request-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--success-color);
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 99;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .request-btn:hover {
+            background-color: #2ecc71;
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* フッター */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #bdc3c7;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+        
+        .contact-info {
+            color: #bdc3c7;
+        }
+        
+        .contact-info li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info li::before {
+            content: "•";
+            margin-right: 8px;
+            color: var(--secondary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+        
+        /* レスポンシブデザイン */
+        @media (max-width: 992px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .search-bar {
+                margin: 15px 0;
+                width: 100%;
+            }
+            
+            .user-actions {
+                margin-top: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .main-menu {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                width: 100%;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .main-menu li:hover .dropdown-menu {
+                display: block;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .hero-buttons .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .support-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title h2 {
+                font-size: 26px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="https://i.ibb.co/jvqv3s0L/123soft-logo.png" alt="123ソフト ロゴ">
+   
+            </a>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="製品名、カテゴリーで検索...">
+            </div>
+            
+            <div class="user-actions">
+                <a href="#">ログイン</a>
+                <a href="#">新規登録</a>
+                <a href="#" class="cart-icon">
+                    カート
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        
+        <nav>
+            <div class="container">
+                <ul class="main-menu">
+                    <li><a href="#">ホーム</a></li>
+                    <li>
+                        <a href="#">製品カテゴリー</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">エンターテインメント</a></li>
+                            <li><a href="#">仕事効率化</a></li>
+                            <li><a href="#">学習</a></li>
+                            <li><a href="#">Steamゲーム</a></li>
+                            <li><a href="#">写真・動画編集</a></li>
+                            <li><a href="#">Windows, Office</a></li>
+                            <li><a href="#">Google Drive</a></li>
+                            <li><a href="#">AIチャットボット</a></li>
+                            <li><a href="#">ウイルス対策</a></li>
+                            <li><a href="#">ギフトカード</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">人気製品</a></li>
+                    <li><a href="#">セール情報</a></li>
+                    <li><a href="#">購入ガイド</a></li>
+                    <li><a href="#">お客様特典</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>高品質なソフトウェアを<br>お手頃価格で提供</h1>
+            <p>10,000以上のソフトウェア製品からお選びいただけます<br>30日間の返金保証付き</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn">今すぐ購入</a>
+                <a href="#" class="btn btn-primary">セール情報を見る</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- メインコンテンツ -->
+    <main>
+        <!-- カテゴリーセクション -->
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>製品カテゴリー</h2>
+                </div>
+                <p class="section-subtitle">お探しのソフトウェアをカテゴリーから簡単に見つけられます</p>
+                
+                <div class="categories">
+                    <a href="#" class="category-card">
+                        <div class="category-img">🎮</div>
+                        <div class="category-info">
+                            <h3>Steamゲーム</h3>
+                            <p>1,000以上の最新ゲーム</p>
+                        </div>
+                    </a>
+                    <a href="#" class="category-card">
+                        <div class="category-img">💼</div>
+                        <div class="category-info">
+                            <h3>仕事効率化</h3>
+                            <p>生産性向上ツール</p>
+                        </div>
+                    </a>
+                    <a href="#" class="category-card">
+                        <div class="category-img">🎬</div>
+                        <div class="category-info">
+                            <h3>エンターテインメント</h3>
+                            <p>動画・音楽配信サービス</p>
+                        </div>
+                    </a>
+                    <a href="#" class="category-card">
+                        <div class="category-img">📚</div>
+                        <div class="category-info">
+                            <h3>学習</h3>
+                            <p>教育・学習支援ソフト</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 注目製品セクション -->
+        <section class="section" style="background-color: #f5f7fa;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>注目製品</h2>
+                </div>
+                <p class="section-subtitle">今月特に人気の高い製品をご紹介します</p>
+                
+                <div class="products">
+                    <div class="product-card">
+                        <div class="product-img">📺</div>
+                        <div class="product-info">
+                            <h3>Netflix Premium 1ヶ月アカウント</h3>
+                            <div class="price-container">
+                                <span class="price">¥990</span>
+                                <span class="original-price">¥2,600</span>
+                                <span class="discount">62%OFF</span>
+                            </div>
+                            <button class="add-to-cart">カートに入れる</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img">💬</div>
+                        <div class="product-info">
+                            <h3>ChatGPT Plus 1ヶ月 - 共有アカウント</h3>
+                            <div class="price-container">
+                                <span class="price">¥1,200</span>
+                                <span class="original-price">¥5,000</span>
+                                <span class="discount">76%OFF</span>
+                            </div>
+                            <button class="add-to-cart">カートに入れる</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img">📝</div>
+                        <div class="product-info">
+                            <h3>Microsoft Office 365 正規版 1年</h3>
+                            <div class="price-container">
+                                <span class="price">¥2,990</span>
+                                <span class="original-price">¥8,000</span>
+                                <span class="discount">63%OFF</span>
+                            </div>
+                            <button class="add-to-cart">カートに入れる</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img">🎮</div>
+                        <div class="product-info">
+                            <h3>Steam Wallet コード ¥2,000</h3>
+                            <div class="price-container">
+                                <span class="price">¥1,800</span>
+                                <span class="original-price">¥2,000</span>
+                                <span class="discount">10%OFF</span>
+                            </div>
+                            <button class="add-to-cart">カートに入れる</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 新着製品セクション -->
+        <section class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>新着製品</h2>
+                </div>
+                <p class="section-subtitle">最新リリースのソフトウェアをご紹介します</p>
+                
+                <div class="products">
+                    <div class="product-card">
+                        <div class="product-img">🔒</div>
+                        <div class="product-info">
+                            <h3>FAME IP VPN 正規版 1ヶ月</h3>
+                            <div class="price-container">
+                                <span class="price">¥350</span>
+                                <span class="original-price">¥1,000</span>
+                                <span class="discount">65%OFF</span>
+                            </div>
+                            <button class="add-to-cart">カートに入れる</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img">🤖</div>
+                        <div class="product-info">
+                            <h3>AIチャットボット 正規版 1ヶ月</h3>
+                            <div class="price-container">
+                                <span class="price">¥900</span>
+                                <span class="original-price">¥2,000</span>
+                                <span class="discount">55%OFF</span>
+                            </div>
+                            <button class="add-to-cart">カートに入れる</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img">✏️</div>
+                        <div class="product-info">
+                            <h3>Grammarly Premium 1ヶ月</h3>
+                            <div class="price-container">
+                                <span class="price">¥990</span>
+                                <span class="original-price">¥4,000</span>
+                                <span class="discount">75%OFF</span>
+                            </div>
+                            <button class="add-to-cart">カートに入れる</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-img">🎥</div>
+                        <div class="product-info">
+                            <h3>Wondershare Filmora 13 正規版 1年</h3>
+                            <div class="price-container">
+                                <span class="price">¥2,500</span>
+                                <span class="original-price">¥12,000</span>
+                                <span class="discount">79%OFF</span>
+                            </div>
+                            <button class="add-to-cart">カートに入れる</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- カスタマーサポートセクション -->
+        <section class="customer-support">
+            <div class="container">
+                <div class="support-container">
+                    <div class="support-info">
+                        <h2>製品のアフターサービス</h2>
+                        <p>
+                            123ソフトの製品は、製品登録していただくことで様々なアフターサービスを受けられます。<br>
+                            お持ちの製品一覧から簡単にご登録いただけます。
+                        </p>
+                        
+                        <div class="support-features">
+                            <h3>ご利用可能なサービス</h3>
+                            <ul class="feature-list">
+                                <li>バージョンアップ (VersionUp)</li>
+                                <li>製品再ダウンロード (Download)</li>
+                                <li>特別オファー (SpecialOffer)</li>
+                                <li>上位版へのアップグレード (Upgrade)</li>
+                                <li>アップデート (Update)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="support-image">
+                        <img src="https://www.sourcenext.com/-/media/Images/GT/v01/top-afterService.ashx" alt="カスタマーサポート">
+                    </div>
+                </div>
+                
+                <div class="support-button">
+                    <a href="#" class="btn btn-primary">サポートセンターへ</a>
+                </div>
+            </div>
+        </section>
+
+                <!-- アカウント登録セクション -->
+        <section class="account-section">
+            <div class="account-container">
+                <h2>アカウント登録で特典をゲット！</h2>
+                <p>アカウントを新規登録すると、お得な特典をご利用いただけます。</p>
+                <div class="account-buttons">
+                    <a href="#" class="btn btn-outline">新規登録</a>
+                    <a href="#" class="btn">ログイン</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- ソフトウェアリクエストボタン -->
+    <button class="request-btn" title="ソフトウェアリクエスト">📩</button>
+    
+    <!-- フッター -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>123ソフトについて</h3>
+                    <ul>
+                        <li><a href="#">会社概要</a></li>
+                        <li><a href="#">企業理念</a></li>
+                        <li><a href="#">採用情報</a></li>
+                        <li><a href="#">プライバシーポリシー</a></li>
+                        <li><a href="#">利用規約</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>カスタマーサポート</h3>
+                    <ul>
+                        <li><a href="#">購入ガイド</a></li>
+                        <li><a href="#">よくある質問</a></li>
+                        <li><a href="#">サポートに連絡</a></li>
+                        <li><a href="#">返品・交換ポリシー</a></li>
+                        <li><a href="#">保証について</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>支払い方法</h3>
+                    <ul>
+                        <li><a href="#">クレジットカード</a></li>
+                        <li><a href="#">銀行振込</a></li>
+                        <li><a href="#">電子マネー</a></li>
+                        <li><a href="#">プリペイドカード</a></li>
+                        <li><a href="#">コンビニ決済</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>お問い合わせ</h3>
+                    <ul class="contact-info">
+                        <li>Email: support@123soft.jp</li>
+                        <li>電話: 0120-123-456</li>
+                        <li>営業時間: 10:00-18:00 (土日祝除く)</li>
+                        <li>住所: 東京都渋谷区渋谷1-2-3</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023-2025 123ソフト株式会社. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
