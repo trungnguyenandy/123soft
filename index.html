@@ -7,22 +7,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* グローバルスタイル */
+        /* Global Styles */
         :root {
-            --primary-color: #2980b9; /* Deep Blue */
-            --secondary-color: #f39c12; /* Bright Orange */
-            --dark-color: #34495e; /* Dark Gray-Blue */
-            --light-color: #ecf0f1; /* Light Gray */
-            --success-color: #27ae60; /* Green */
-            --danger-color: #e74c3c; /* Red */
-            --gray-color: #95a5a6; /* Medium Gray */
+            --primary-color: #2980b9;
+            --secondary-color: #f39c12;
+            --dark-color: #34495e;
+            --light-color: #ecf0f1;
+            --success-color: #27ae60;
+            --danger-color: #e74c3c;
+            --gray-color: #95a5a6;
             --white: #ffffff;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
             --border-radius: 8px;
             --font-family: 'Noto Sans JP', sans-serif;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -30,34 +30,34 @@
             font-family: var(--font-family);
             scroll-behavior: smooth;
         }
-        
+
         body {
             background-color: var(--light-color);
             color: var(--dark-color);
             line-height: 1.7;
         }
-        
+
         a {
             text-decoration: none;
             color: var(--primary-color);
             transition: var(--transition);
         }
-        
+
         a:hover {
             color: var(--secondary-color);
         }
-        
+
         ul {
             list-style: none;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* ボタンスタイル */
+
+        /* Button Styles */
         .btn {
             display: inline-block;
             padding: 12px 24px;
@@ -71,33 +71,33 @@
             text-align: center;
             box-shadow: var(--shadow);
         }
-        
+
         .btn:hover {
             background-color: #2980b9;
             transform: translateY(-2px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
-        
+
         .btn-primary {
             background-color: var(--secondary-color);
         }
-        
+
         .btn-primary:hover {
             background-color: #e67e22;
         }
-        
+
         .btn-outline {
             background-color: transparent;
             border: 2px solid var(--primary-color);
             color: var(--primary-color);
         }
-        
+
         .btn-outline:hover {
             background-color: var(--primary-color);
             color: var(--white);
         }
-        
-        /* ヘッダースタイル */
+
+        /* Header Styles */
         header {
             background-color: var(--white);
             color: var(--white);
@@ -107,13 +107,13 @@
             top: 0;
             z-index: 1000;
         }
-        
+
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             font-size: 24px;
             font-weight: 700;
@@ -123,16 +123,16 @@
         }
 
         .logo img {
-            max-height: 50px; /* Adjust as needed */
+            max-height: 50px;
             margin-right: 10px;
         }
-        
+
         .search-bar {
             flex: 1;
             margin: 0 30px;
             position: relative;
         }
-        
+
         .search-bar input {
             width: 100%;
             padding: 12px 20px;
@@ -144,14 +144,14 @@
             color: var(--dark-color);
             transition: border-color 0.3s ease;
         }
-        
+
         .search-bar input:focus {
             outline: none;
             border-color: var(--primary-color);
         }
-        
+
         .search-bar::before {
-            content: "\f002"; /* Font Awesome search icon */
+            content: "\f002";
             font-family: FontAwesome;
             position: absolute;
             left: 15px;
@@ -160,13 +160,13 @@
             font-size: 16px;
             color: var(--gray-color);
         }
-        
+
         .user-actions {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-        
+
         .user-actions a {
             font-size: 14px;
             font-weight: 500;
@@ -175,18 +175,18 @@
             color: var(--dark-color);
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-        
+
         .user-actions a:hover {
             background-color: rgba(0, 0, 0, 0.05);
             color: var(--primary-color);
         }
-        
+
         .cart-icon {
             position: relative;
             display: flex;
             align-items: center;
         }
-        
+
         .cart-count {
             position: absolute;
             top: -8px;
@@ -202,22 +202,22 @@
             justify-content: center;
             font-weight: bold;
         }
-        
-        /* ナビゲーション */
+
+        /* Navigation Styles */
         nav {
             background-color: var(--dark-color);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
         .main-menu {
             display: flex;
             justify-content: center;
         }
-        
+
         .main-menu > li {
             position: relative;
         }
-        
+
         .main-menu > li > a {
             display: block;
             padding: 15px 20px;
@@ -225,12 +225,12 @@
             font-weight: 500;
             transition: var(--transition);
         }
-        
+
         .main-menu > li > a:hover {
             background-color: rgba(0, 0, 0, 0.2);
             color: var(--secondary-color);
         }
-        
+
         .dropdown-menu {
             position: absolute;
             left: 0;
@@ -245,12 +245,12 @@
             border-radius: var(--border-radius);
             overflow: hidden;
         }
-        
+
         .main-menu li:hover .dropdown-menu {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .dropdown-menu a {
             display: block;
             padding: 12px 20px;
@@ -258,14 +258,14 @@
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             transition: var(--transition);
         }
-        
+
         .dropdown-menu a:hover {
             background-color: var(--light-color);
             color: var(--primary-color);
             padding-left: 25px;
         }
-        
-        /* ヒーローセクション */
+
+        /* Hero Section Styles */
         .hero {
             background: linear-gradient(135deg, var(--primary-color), var(--dark-color));
             color: var(--white);
@@ -276,7 +276,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .hero::before {
             content: "";
             position: absolute;
@@ -288,45 +288,45 @@
             opacity: 0.15;
             z-index: 1;
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 2;
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .hero h1 {
             font-size: 36px;
             margin-bottom: 20px;
             font-weight: 700;
             line-height: 1.3;
         }
-        
+
         .hero p {
             font-size: 18px;
             margin-bottom: 30px;
             opacity: 0.9;
         }
-        
+
         .hero-buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin-top: 30px;
         }
-        
-        /* セクションタイトル */
+
+        /* Section Title Styles */
         .section {
             padding: 50px 0;
         }
-        
+
         .section-title {
             text-align: center;
             margin-bottom: 40px;
             position: relative;
         }
-        
+
         .section-title h2 {
             font-size: 28px;
             color: var(--dark-color);
@@ -334,7 +334,7 @@
             padding-bottom: 15px;
             position: relative;
         }
-        
+
         .section-title h2::after {
             content: "";
             position: absolute;
@@ -345,7 +345,7 @@
             height: 3px;
             background-color: var(--secondary-color);
         }
-        
+
         .section-subtitle {
             text-align: center;
             color: var(--gray-color);
@@ -353,15 +353,15 @@
             margin: 0 auto 40px;
             font-size: 16px;
         }
-        
-        /* カテゴリーセクション */
+
+        /* Category Section Styles */
         .categories {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             margin-bottom: 40px;
         }
-        
+
         .category-card {
             background-color: var(--white);
             border-radius: var(--border-radius);
@@ -371,12 +371,12 @@
             text-align: center;
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
-        
+
         .category-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
         }
-        
+
         .category-img {
             height: 120px;
             background-color: #f5f7fa;
@@ -386,30 +386,30 @@
             font-size: 48px;
             color: var(--primary-color);
         }
-        
+
         .category-info {
             padding: 20px;
         }
-        
+
         .category-info h3 {
             margin-bottom: 10px;
             font-size: 18px;
             color: var(--dark-color);
         }
-        
+
         .category-info p {
             color: var(--gray-color);
             font-size: 14px;
         }
-        
-        /* 製品セクション */
+
+        /* Product Section Styles */
         .products {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 25px;
             margin-bottom: 40px;
         }
-        
+
         .product-card {
             background-color: var(--white);
             border-radius: var(--border-radius);
@@ -418,12 +418,12 @@
             transition: var(--transition);
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
-        
+
         .product-card:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .product-badge {
             position: absolute;
             top: 15px;
@@ -435,7 +435,7 @@
             font-size: 12px;
             font-weight: bold;
         }
-        
+
         .product-img {
             height: 180px;
             background-color: #f5f7fa;
@@ -446,11 +446,11 @@
             color: var(--primary-color);
             position: relative;
         }
-        
+
         .product-info {
             padding: 20px;
         }
-        
+
         .product-info h3 {
             margin-bottom: 12px;
             font-size: 16px;
@@ -458,7 +458,7 @@
             font-weight: 600;
             line-height: 1.4;
         }
-        
+
         .price-container {
             margin-bottom: 15px;
             display: flex;
@@ -466,19 +466,19 @@
             flex-wrap: wrap;
             gap: 5px;
         }
-        
+
         .price {
             font-weight: 700;
             color: var(--danger-color);
             font-size: 18px;
         }
-        
+
         .original-price {
             text-decoration: line-through;
             color: var(--gray-color);
             font-size: 14px;
         }
-        
+
         .discount {
             background-color: var(--danger-color);
             color: var(--white);
@@ -487,7 +487,7 @@
             font-size: 12px;
             font-weight: bold;
         }
-        
+
         .add-to-cart {
             display: block;
             width: 100%;
@@ -500,102 +500,60 @@
             transition: var(--transition);
             font-weight: 600;
         }
-        
+
         .add-to-cart:hover {
             background-color: #34495e;
         }
-        
-        /* カスタマーサポートセクション */
+
+        /* Customer Support Section Styles */
         .customer-support {
-            background-color: #f5f7fa;
             padding: 60px 0;
             margin-top: 30px;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
-        
+
         .support-container {
             display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
             align-items: center;
+            justify-content: space-between;
         }
-        
+
         .support-info {
             flex: 1;
-            min-width: 300px;
+            text-align: left;
+            max-width: 50%;
         }
-        
+
         .support-info h2 {
             color: var(--dark-color);
             margin-bottom: 20px;
             font-size: 28px;
             font-weight: 700;
         }
-        
+
         .support-info p {
             margin-bottom: 25px;
             line-height: 1.7;
             color: #555;
         }
-        
-        .support-features {
-            background-color: var(--white);
-            padding: 25px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
+
+        .support-button {
             margin-top: 20px;
         }
-        
-        .support-features h3 {
-            color: var(--dark-color);
-            margin-bottom: 15px;
-            font-size: 18px;
-            font-weight: 600;
-        }
-        
-        .feature-list {
-            list-style: none;
-        }
-        
-        .feature-list li {
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
-            color: #555;
-        }
-        
-        .feature-list li::before {
-            content: "\f00c"; /* Font Awesome check icon */
-            font-family: FontAwesome;
-            position: absolute;
-            left: 0;
-            color: var(--success-color);
-            font-weight: bold;
-        }
-        
+
         .support-image {
             flex: 1;
-            min-width: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            max-width: 50%;
         }
-        
+
         .support-image img {
             max-width: 100%;
             height: auto;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            display: block;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
         }
-        
-        .support-button {
-            text-align: center;
-            margin-top: 30px;
-        }
-        
-                /* アカウント登録セクション */
+        /* Account Section Styles */
         .account-section {
             background-color: var(--dark-color);
             color: var(--white);
@@ -603,33 +561,33 @@
             text-align: center;
             border-radius: var(--border-radius);
         }
-        
+
         .account-container {
             max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         .account-section h2 {
             font-size: 28px;
             margin-bottom: 20px;
             color: var(--white);
         }
-        
+
         .account-section p {
             margin-bottom: 30px;
             line-height: 1.7;
             color: rgba(255, 255, 255, 0.8);
         }
-        
+
         .account-buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin-top: 30px;
         }
-        
-        /* リクエストボタン */
+
+        /* Request Button Styles */
         .request-btn {
             position: fixed;
             bottom: 30px;
@@ -649,27 +607,27 @@
             border: none;
             cursor: pointer;
         }
-        
+
         .request-btn:hover {
             background-color: #2ecc71;
             transform: scale(1.1) translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
-        
-        /* フッター */
+
+        /* Footer Styles */
         footer {
             background-color: var(--dark-color);
             color: var(--white);
             padding: 60px 0 20px;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 40px;
             margin-bottom: 40px;
         }
-        
+
         .footer-column h3 {
             font-size: 18px;
             margin-bottom: 20px;
@@ -677,7 +635,7 @@
             position: relative;
             padding-bottom: 10px;
         }
-        
+
         .footer-column h3::after {
             content: "";
             position: absolute;
@@ -687,44 +645,44 @@
             height: 2px;
             background-color: var(--secondary-color);
         }
-        
+
         .footer-column ul li {
             margin-bottom: 12px;
         }
-        
+
         .footer-column ul li a {
             color: #bdc3c7;
             transition: var(--transition);
             display: inline-block;
         }
-        
+
         .footer-column ul li a:hover {
             color: var(--secondary-color);
             transform: translateX(5px);
         }
-        
+
         .contact-info {
             color: #bdc3c7;
         }
-        
+
         .contact-info li {
             margin-bottom: 12px;
             display: flex;
             align-items: flex-start;
         }
-        
+
         .contact-info li::before {
             content: "•";
             margin-right: 8px;
             color: var(--secondary-color);
         }
-        
+
         .social-links {
             display: flex;
             gap: 15px;
             margin-top: 15px;
         }
-        
+
         .social-links a {
             display: inline-block;
             width: 36px;
@@ -735,12 +693,12 @@
             line-height: 36px;
             transition: var(--transition);
         }
-        
+
         .social-links a:hover {
             background-color: var(--secondary-color);
             transform: translateY(-3px);
         }
-        
+
         .copyright {
             text-align: center;
             padding-top: 20px;
@@ -748,37 +706,37 @@
             font-size: 14px;
             color: #bdc3c7;
         }
-        
-        /* レスポンシブデザイン */
+
+        /* Responsive Design */
         @media (max-width: 992px) {
             .header-container {
                 flex-direction: column;
             }
-            
+
             .logo {
                 margin-bottom: 15px;
             }
-            
+
             .search-bar {
                 margin: 15px 0;
                 width: 100%;
             }
-            
+
             .user-actions {
                 margin-top: 15px;
             }
-            
+
             .hero h1 {
                 font-size: 36px;
             }
         }
-        
+
         @media (max-width: 768px) {
             .main-menu {
                 flex-direction: column;
                 align-items: center;
             }
-            
+
             .dropdown-menu {
                 position: static;
                 opacity: 1;
@@ -788,40 +746,47 @@
                 box-shadow: none;
                 border-radius: 0;
             }
-            
+
             .main-menu li:hover .dropdown-menu {
                 display: block;
             }
-            
+
             .hero-buttons {
                 flex-direction: column;
                 gap: 10px;
             }
-            
+
             .hero-buttons .btn {
                 width: 100%;
                 max-width: 300px;
                 margin: 0 auto;
             }
-            
+
             .support-container {
                 flex-direction: column;
+                text-align: center;
+            }
+
+            .support-info,
+            .support-image {
+                max-width: 100%;
+                text-align: center;
             }
         }
-        
+
         @media (max-width: 576px) {
             .hero h1 {
                 font-size: 28px;
             }
-            
+
             .hero p {
                 font-size: 16px;
             }
-            
+
             .section-title h2 {
                 font-size: 26px;
             }
-            
+
             .footer-content {
                 grid-template-columns: 1fr;
             }
@@ -834,7 +799,7 @@
         <div class="container header-container">
             <a href="#" class="logo">
                 <img src="https://i.ibb.co/jvqv3s0L/123soft-logo.png" alt="123ソフト ロゴ">
-   
+                <span>123ソフト</span>
             </a>
             
             <div class="search-bar">
@@ -1058,7 +1023,7 @@
         
         <!-- カスタマーサポートセクション -->
         <section class="customer-support">
-            <div class="container">
+             <div class="container">
                 <div class="support-container">
                     <div class="support-info">
                         <h2>製品のアフターサービス</h2>
@@ -1066,16 +1031,8 @@
                             123ソフトの製品は、製品登録していただくことで様々なアフターサービスを受けられます。<br>
                             お持ちの製品一覧から簡単にご登録いただけます。
                         </p>
-                        
-                        <div class="support-features">
-                            <h3>ご利用可能なサービス</h3>
-                            <ul class="feature-list">
-                                <li>バージョンアップ (VersionUp)</li>
-                                <li>製品再ダウンロード (Download)</li>
-                                <li>特別オファー (SpecialOffer)</li>
-                                <li>上位版へのアップグレード (Upgrade)</li>
-                                <li>アップデート (Update)</li>
-                            </ul>
+                        <div class="support-button">
+                            <a href="#" class="btn btn-primary">サポートセンターへ</a>
                         </div>
                     </div>
                     
@@ -1083,14 +1040,10 @@
                         <img src="https://www.sourcenext.com/-/media/Images/GT/v01/top-afterService.ashx" alt="カスタマーサポート">
                     </div>
                 </div>
-                
-                <div class="support-button">
-                    <a href="#" class="btn btn-primary">サポートセンターへ</a>
-                </div>
             </div>
         </section>
 
-                <!-- アカウント登録セクション -->
+        <!-- アカウント登録セクション -->
         <section class="account-section">
             <div class="account-container">
                 <h2>アカウント登録で特典をゲット！</h2>
